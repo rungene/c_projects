@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(__attribute__((unused))int ac, __attribute__((unused))char *av[])
+int main(__attribute__((unused))int ac, char **av)
 {
 	char *line = NULL, *line_copy = NULL;
 	size_t len = 0;
@@ -44,6 +44,13 @@ int main(__attribute__((unused))int ac, __attribute__((unused))char *av[])
 		token = strtok(NULL, delim);
 	}
 	num_tokens++;
+	/* Allocate space to hold the array of strings */
+	av = malloc(sizeof(char *) * num_tokens);
+	if (av == NULL)
+	{
+		perror("av: memory allocation failed");
+		exit(EXIT_FAILURE);
+	}
 	}
 	free(line);
 	exit(EXIT_SUCCESS);
