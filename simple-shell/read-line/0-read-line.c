@@ -12,6 +12,11 @@ int main(__attribute__((unused))int ac, __attribute__((unused))char *av[])
 	printf("$ ");
 
 	nread = getline(&line, &len, stdin);
+	if (nread == -1)
+	{
+		perror("getline");
+		exit(EXIT_FAILURE);
+	}
 	printf("%s", line);
 	printf("Number of characters: %ld\n", nread);
 	}
