@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(__attribute__((unused))int ac, __attribute__((unused))char *av[])
 {
@@ -28,6 +29,8 @@ int main(__attribute__((unused))int ac, __attribute__((unused))char *av[])
 		perror("tsh: memory allocation failed");
 		exit(EXIT_FAILURE);
 	}
+	/*make a copy to line */
+	strcpy(line_copy, line);
 	}
 	free(line);
 	exit(EXIT_SUCCESS);
