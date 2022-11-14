@@ -51,6 +51,18 @@ int main(__attribute__((unused))int ac, char **av)
 		perror("av: memory allocation failed");
 		exit(EXIT_FAILURE);
 	}
+	/*store each token in the argv array */
+	token = strtok(line_copy, delim);
+
+	for (i = 0; token != NULL; i++)
+	{
+		av[i] = malloc(sizeof(char) * strlen(token));
+		strcpy(av[i], token);
+
+		token = strtok(NULL, delim);
+	}
+	av[i] = NULL;
+
 	}
 	free(line);
 	exit(EXIT_SUCCESS);
