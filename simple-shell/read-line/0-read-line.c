@@ -20,6 +20,14 @@ int main(__attribute__((unused))int ac, __attribute__((unused))char *av[])
 	}
 	printf("%s", line);
 	printf("Number of characters: %ld\n", nread);
+
+	/*Dynamically allocate space */
+	line_copy = malloc(sizeof(char) * nread);
+	if (line_copy == NULL)
+	{
+		perror("tsh: memory allocation failed");
+		exit(EXIT_FAILURE);
+	}
 	}
 	free(line);
 	exit(EXIT_SUCCESS);
