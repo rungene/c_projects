@@ -8,6 +8,9 @@ int main(__attribute__((unused))int ac, __attribute__((unused))char *av[])
 	size_t len = 0;
 	ssize_t nread;
 	const char *delim = " \n";
+	int num_tokens = 0, i;
+	char *tokens;
+
 
 	while (1)
 	{
