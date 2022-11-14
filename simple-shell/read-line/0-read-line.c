@@ -34,6 +34,16 @@ int main(__attribute__((unused))int ac, __attribute__((unused))char *av[])
 	}
 	/*make a copy to line */
 	strcpy(line_copy, line);
+	/*split the string int an array of words */
+	/* calculate the total number of token */
+	token = strtok(line, delim);
+
+	while (token != NULL)
+	{
+		num_tokens++;
+		token = strtok(NULL, delim);
+	}
+	num_tokens++;
 	}
 	free(line);
 	exit(EXIT_SUCCESS);
