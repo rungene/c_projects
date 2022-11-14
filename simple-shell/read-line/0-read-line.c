@@ -3,9 +3,10 @@
 
 int main(__attribute__((unused))int ac, __attribute__((unused))char *av[])
 {
-	char *line = NULL;
+	char *line = NULL, *line_copy = NULL;
 	size_t len = 0;
 	ssize_t nread;
+	const char *delim = " \n";
 
 	while (1)
 	{
