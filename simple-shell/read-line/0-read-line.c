@@ -1,4 +1,4 @@
-"main.h"
+#include "main.h"
 
 int main(__attribute__((unused))int ac, __attribute__((unused))char **argv)
 {
@@ -64,7 +64,8 @@ int main(__attribute__((unused))int ac, __attribute__((unused))char **argv)
 	/*set the last index of argv to NULL to terminate the array of strings*/
 	av[i] = NULL;
 
-	printf("%s\n", line);
+	/* execute the command */
+	cmdexec(av);
 	}
 	free(line);
 	free(line_copy);
