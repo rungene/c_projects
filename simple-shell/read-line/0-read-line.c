@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+"main.h"
 
 int main(__attribute__((unused))int ac, __attribute__((unused))char **argv)
 {
