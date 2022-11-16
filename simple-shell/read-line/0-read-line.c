@@ -66,8 +66,8 @@ int main(__attribute__((unused))int ac, __attribute__((unused))char **argv)
 	/*set the last index of argv to NULL to terminate the array of strings*/
 	av[i] = NULL;
 
-	}
 	printf("%s\n", line);
+	}
 	free(line);
 	free(line_copy);
 	free(av);
