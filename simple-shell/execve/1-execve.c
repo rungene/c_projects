@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 /**
 * main - execve demostration
@@ -9,12 +11,25 @@
 int main(void)
 {
 	char *argv[] = {"/bin/ls", "-1", "/usr/", NULL};
+	pid_t mypid;
+
+	mypid = fork();
+	if (mypid == -1)
+		perror("Fork failed");
 	printf("Before execve\n");
-	if (execve(argv[0], argv, NULL) == -1)
+
+	if (mypid == 0)/* child */
 	{
-		perror("Error");
+		if (execve(argv[0], argv, NULL) == -1)
+		{
+			perror("Error");
+		}
 	}
-	printf("After execve\n");
+	else/*parent*/
+	{
+		wait(NULL);
+		printf("After execve\n");
+	}
 	return (0);
 }
 
