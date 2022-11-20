@@ -19,7 +19,8 @@ None
 ##Basic	Operation
 
 - After a new child process is created, both process will execute the next instruction following the fork() system call.
-
+- When child exits, it returns back to the parent
+- If parent has already exited befpre child returns, the child gets stranded in what is called a **zombie** state
 ##Syntax
 fork()
 
