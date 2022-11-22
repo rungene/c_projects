@@ -2,9 +2,15 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/**
+* main - fork and orphan process demosntrations.
+*
+* Return: 0 Alays
+*/
+
 int main(void)
 {
-	pid_t my_pid;
+	pid_t my_ppid;
 	pid_t pid;
 
 	printf("Before calling fork\n");
@@ -15,9 +21,15 @@ int main(void)
 		perror("Error:");
 		return (1);
 	}
-	printf("After calling fork\n");
-	my_pid = getpid();
-	printf("After calling for, pid is %u\n",pid);
-	printf("My pid is %u\n", my_pid);
+	if (pid == 0)
+	{
+		sleep(40);
+		printf("Inside the child\n");
+	}
+	else
+	{
+		my_ppid = getpid();
+		printf("Parent's pid %u", my_ppid);
+	}
 	return (0);
 }
