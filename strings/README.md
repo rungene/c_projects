@@ -9,3 +9,5 @@ Other data types in C e.g **int**s or **float** are generally passed and stored 
 ## References
 
 -  [CS50x 2019](https://cs50.harvard.edu/x/2019/notes/3/#:~:text=CS50x%202019)
+
+- [Strings input and Output functions in c](https://www.scaler.com/topics/c/c-string-input-output-function/)
