@@ -13,6 +13,6 @@ typedef struct node
 } node;
 
 #include <stdio.h>
-#include <stdio.lib>
+#include <stdlib.h>
 
 #endif /* HEADER_H */
