@@ -1,9 +1,7 @@
 #include "main.h"
 
-/*Global variable*/
-node *head;
-void insert(int data, int n);
-void Print(void);
+node *insert(node *head, int data, int n);
+void Print(node *head);
 /**
 * main - checks the code
 *
@@ -12,26 +10,27 @@ void Print(void);
 int main(void)
 {
 	/*Empty list */
-	head = NULL;
+	node *head = NULL;
 
-	insert(5, 1);
-	insert(4, 2);
-	insert(3, 3);
-	insert(2, 4);
-	insert(1, 5);
-	Print();
+	head = insert(head, 5, 1);
+	head = insert(head, 4, 2);
+	head = insert(head, 3, 3);
+	head = insert(head, 2, 4);
+	head = insert(head, 1, 5);
+	Print(head);
 
 	return (0);
 }
 
 /**
 * insert - inserts a node at n position
+* @head: head pointer
 * @data: data to insert
 * @n: The nth position to insert
 *
-* Return: Void
+* Return: node
 */
-void insert(int data, int n)
+node *insert(node *head, int data, int n)
 {
 	node *temp1;
 	node *temp2;
@@ -45,7 +44,7 @@ void insert(int data, int n)
 	{
 		temp1->next = head;
 		head = temp1;
-		return;
+		return (head);
 	}
 	temp2 = head;
 	for (i = 0; i < n - 2; i++)
@@ -54,22 +53,23 @@ void insert(int data, int n)
 	}
 	temp1->next = temp2->next;
 	temp2->next = temp1;
+
+	return (head);
 }
 
 /**
 * Print - prints the linked list
+* @head: pointer to the head
 *
 * Return: void
 */
-void Print(void)
+void Print(node *head)
 {
-	node *temp = head;
-
 	printf("The list is: ");
-	while (temp != NULL)
+	while (head != NULL)
 	{
-		printf("%d", temp->data);
-		temp = temp->next;
+		printf("%d", head->data);
+		head = head->next;
 	}
 	printf("\n");
 }
