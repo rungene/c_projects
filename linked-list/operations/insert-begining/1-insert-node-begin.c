@@ -53,13 +53,11 @@ node *insert(int x, node *head)
 */
 void Print(node *head)
 {
-	node *temp = head;
-
 	printf("List is: ");
-	while (temp != NULL)
+	while (head != NULL)
 	{
-		printf(" %d", temp->data);
-		temp = temp->next;
+		printf(" %d", head->data);
+		head = head->next;
 	}
 	printf("\n");
 }
