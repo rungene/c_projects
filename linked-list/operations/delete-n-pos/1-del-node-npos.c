@@ -94,16 +94,20 @@ void delete(int n, node **head)
 
 	if (n == 1)
 	{
+		/*head now points to second node.*/
 		*head = temp1->next;
 		free(temp1);
 		return;
 	}
 	for (i = 0; i < n - 2; i++)
 	{
+		/*temp1 points to (n-1)th node*/
 		temp1 = temp1->next;
 	}
+	/*nth node*/
 	temp2 = temp1->next;
-
+	/*(n+1)th node*/
 	temp1->next = temp2->next;
+	/*Delete temp2*/
 	free(temp2);
 }
