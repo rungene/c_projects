@@ -43,7 +43,6 @@ void insert_node_tail(int x, node **head)
 		temp = temp->next;/*Go to the last node*/
 	temp->next = new_node;
 	new_node->prev = temp;
-	*head = new_node;
 }
 
 /**
