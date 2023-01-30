@@ -20,6 +20,7 @@ node *get_node(int x)
 /**
 * insert_node_begining - inserts a node at the begining
 * @x: fisrt params, int data paased to the fun
+* @head: second params, double pointer to the head
 *
 * Return: Void
 */
@@ -42,6 +43,7 @@ void insert_node_begining(int x, node **head)
 
 /**
 * Print- forward printing.
+* @head: pointer to the head
 *
 * Return: Void
 */
@@ -60,6 +62,7 @@ void Print(node *head)
 }
 /**
 * reverse_print - backward printing
+* @head: pointer to the head
 *
 * Return: Void
 */
@@ -95,7 +98,7 @@ int main(void)
 	/*empty list*/
 	head = NULL;
 
-	insert_node_begining(1,&head);
+	insert_node_begining(1, &head);
 	Print(head);
 	reverse_print(head);
 	insert_node_begining(2, &head);
