@@ -20,15 +20,18 @@ node *get_node(int x)
 }
 
 /**
-* insert_node_begining - inserts a node at the begining
+* insert_node_tail - inserts a node at the tail doubly
+* linked list
 * @x: fisrt params, int data paased to the fun
 *
 * Return: Void
 */
-void insert_node_begining(int x)
+void insert_node_tail(int x)
 {
 	node *new_node;
+	node *temp;
 
+	temp = head;
 	new_node = get_node(x);
 	/*Empty list*/
 	if (head == NULL)
@@ -37,8 +40,10 @@ void insert_node_begining(int x)
 		return;
 	}
 	/*list not empty*/
-	head->prev = new_node;
-	new_node->next = head;
+	while (temp->next != NULL)
+		temp = temp->next;/*Go to the last node*/
+	temp->next = new_node;
+	new_node->prev = temp;
 	head = new_node;
 }
 
@@ -53,6 +58,12 @@ void Print(void)
 
 	temp = head;
 	printf("Forward: ");
+	/*traverse to the begining of the node*/
+	while (temp->prev != NULL)
+	{
+		temp = temp->prev;
+	}
+	/*temp represents the begining node*/
 	while (temp != NULL)
 	{
 		printf("%d", temp->data);
@@ -96,19 +107,19 @@ int main(void)
 	/*empty list*/
 	head = NULL;
 
-	insert_node_begining(1);
+	insert_node_tail(1);
 	Print();
 	reverse_print();
-	insert_node_begining(2);
+	insert_node_tail(2);
 	Print();
 	reverse_print();
-	insert_node_begining(3);
+	insert_node_tail(3);
 	Print();
 	reverse_print();
-	insert_node_begining(4);
+	insert_node_tail(4);
 	Print();
 	reverse_print();
-	insert_node_begining(5);
+	insert_node_tail(5);
 	Print();
 	reverse_print();
 	return (0);
