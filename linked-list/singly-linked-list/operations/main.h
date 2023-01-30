@@ -1,6 +1,7 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
+#include <stddef.h>
 /**
 * struct THING - singly linked list node
 * @item: the pointer to the charater
@@ -13,7 +14,6 @@ typedef struct THING
 	char *item;
 	struct THING *next;
 } thing;
-thing *start = NULL;
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
