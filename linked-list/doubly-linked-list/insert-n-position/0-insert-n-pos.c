@@ -31,6 +31,7 @@ void insert_node_n_pos(int x, int n)
 	node *new_node;
 	node *temp;
 	node *temp2;
+	int i;
 
 	temp = head;
 	new_node = get_node(x);
@@ -47,11 +48,8 @@ void insert_node_n_pos(int x, int n)
 		head = new_node;
 		return;
 	}
-	while (n != 0)
-	{
+	for (i = 0; i < n-1; i++)
 		temp = temp->next;
-		n--;
-	}
 	if (temp->next == NULL)
 	{
 		temp->next = new_node;
@@ -130,10 +128,10 @@ int main(void)
 	/*empty list*/
 	head = NULL;
 
-	insert_node_n_pos(1,0);
+	insert_node_n_pos(1,1);
 	Print();
 	reverse_print();
-	insert_node_n_pos(2,0);
+	insert_node_n_pos(2,1);
 	Print();
 	reverse_print();
 	insert_node_n_pos(3,3);
